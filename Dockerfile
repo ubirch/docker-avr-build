@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install gcc-avr avrdude wget xz-utils git binutils
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /opt
+RUN git config --system user.name Docker && git config --system user.email docker@localhost 
 RUN wget http://downloads.arduino.cc/arduino-1.6.5-linux64.tar.xz
 RUN tar xf arduino-1.6.5-linux64.tar.xz
 RUN mkdir /build
