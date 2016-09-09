@@ -7,7 +7,9 @@ function build_container() {
 
     echo "Building AVR Tools container"
 
-    mkdir -p VAR && docker build -t ubirch/avr-build:v${GO_PIPELINE_LABEL} .
+    mkdir -p VAR && docker build --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
+    --build-arg VCS_REF=`git rev-parse --short HEAD` \
+    -t ubirch/avr-build:v${GO_PIPELINE_LABEL} .
 
 
     if [ $? -eq 0 ]; then
