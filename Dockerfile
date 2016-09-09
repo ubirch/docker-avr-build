@@ -19,15 +19,9 @@ RUN apt-get update && apt-get install gcc-avr avrdude wget xz-utils git binutils
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /opt
-<<<<<<< ba804ed0de11cafd019aa22b3e9d200b16f78cf8
-RUN git config --system user.name Docker && git config --system user.email docker@localhost 
+RUN git config --system user.name Docker && git config --system user.email docker@localhost
 RUN wget http://downloads.arduino.cc/arduino-1.6.6-linux64.tar.xz
 RUN tar xf arduino-1.6.6-linux64.tar.xz
-=======
-RUN git config --system user.name Docker && git config --system user.email docker@localhost
-RUN wget http://downloads.arduino.cc/arduino-1.6.5-linux64.tar.xz
-RUN tar xf arduino-1.6.5-linux64.tar.xz
->>>>>>> adding more build information to Dockerfile
 RUN mkdir /build
 VOLUME /build
 WORKDIR /build
